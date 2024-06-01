@@ -7,7 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D5C6CF82BB9CA4B003CC35D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6CF72BB9CA4B003CC35D /* main.swift */; };
+		3D2456122BED0469002487AC /* first_layer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456112BED0469002487AC /* first_layer.metal */; };
+		3D2456152BEE7E8C002487AC /* MidpointMetalOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456132BEE7E8C002487AC /* MidpointMetalOperator.cpp */; };
+		3D24561A2BF99C2A002487AC /* midpoint.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456192BF99C2A002487AC /* midpoint.metal */; };
+		3D2456222BFA2F8B002487AC /* CommandQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456202BFA2F8B002487AC /* CommandQueue.cpp */; };
+		3D24562B2BFA58DE002487AC /* KernelLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456292BFA58DE002487AC /* KernelLibrary.cpp */; };
+		3D2456312BFBC81C002487AC /* GlobalMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D24562F2BFBC81C002487AC /* GlobalMemory.cpp */; };
+		3D2456332BFD19D0002487AC /* copy.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456322BFD19D0002487AC /* copy.metal */; };
+		3D5C6D002BB9CA76003CC35D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6CFE2BB9CA76003CC35D /* main.cpp */; };
+		3D5C6D032BB9CAAA003CC35D /* numerical_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D012BB9CAAA003CC35D /* numerical_ops.cpp */; };
+		3D5C6D062BB9DA56003CC35D /* random_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D042BB9DA56003CC35D /* random_generators.cpp */; };
+		3D5C6D0C2BBA3807003CC35D /* graph_descend.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D0A2BBA3807003CC35D /* graph_descend.cpp */; };
+		3DA7ECE02BBBBC5C002EF83A /* simplex_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */; };
+		3DA7ECE32BBD6E66002EF83A /* collisions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE12BBD6E66002EF83A /* collisions.cpp */; };
+		3DA7ECE62BBDCE05002EF83A /* graph_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE42BBDCE05002EF83A /* graph_path.cpp */; };
+		3DA7ECE92BC0384C002EF83A /* facing_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE72BC0384C002EF83A /* facing_node.cpp */; };
+		3DA7ECEC2BC77C9E002EF83A /* resimplexification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECEA2BC77C9E002EF83A /* resimplexification.cpp */; };
+		3DA7ECEF2BCB2D09002EF83A /* numerical_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECED2BCB2D09002EF83A /* numerical_debug.cpp */; };
+		3DA7ECF22BCC0CD0002EF83A /* file_io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECF02BCC0CD0002EF83A /* file_io.cpp */; };
+		3DA7ECF52BCC56F0002EF83A /* chrono_methods.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECF32BCC56F0002EF83A /* chrono_methods.cpp */; };
+		3DA7ECF82BCF0537002EF83A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA7ECF72BCF0537002EF83A /* Foundation.framework */; };
+		3DA7ECFA2BCF054D002EF83A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA7ECF92BCF054D002EF83A /* QuartzCore.framework */; };
+		3DA7ECFC2BCF0557002EF83A /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA7ECFB2BCF0557002EF83A /* Metal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +44,45 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D2456112BED0469002487AC /* first_layer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = first_layer.metal; sourceTree = "<group>"; };
+		3D2456132BEE7E8C002487AC /* MidpointMetalOperator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MidpointMetalOperator.cpp; sourceTree = "<group>"; };
+		3D2456142BEE7E8C002487AC /* MidpointMetalOperator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MidpointMetalOperator.hpp; sourceTree = "<group>"; };
+		3D2456192BF99C2A002487AC /* midpoint.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = midpoint.metal; sourceTree = "<group>"; };
+		3D2456202BFA2F8B002487AC /* CommandQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandQueue.cpp; sourceTree = "<group>"; };
+		3D2456212BFA2F8B002487AC /* CommandQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandQueue.hpp; sourceTree = "<group>"; };
+		3D2456292BFA58DE002487AC /* KernelLibrary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KernelLibrary.cpp; sourceTree = "<group>"; };
+		3D24562A2BFA58DE002487AC /* KernelLibrary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KernelLibrary.hpp; sourceTree = "<group>"; };
+		3D24562F2BFBC81C002487AC /* GlobalMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalMemory.cpp; sourceTree = "<group>"; };
+		3D2456302BFBC81C002487AC /* GlobalMemory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlobalMemory.hpp; sourceTree = "<group>"; };
+		3D2456322BFD19D0002487AC /* copy.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = copy.metal; sourceTree = "<group>"; };
 		3D5C6CF42BB9CA4B003CC35D /* LinearInterpolation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearInterpolation; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D5C6CF72BB9CA4B003CC35D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3D5C6CFE2BB9CA76003CC35D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3D5C6D012BB9CAAA003CC35D /* numerical_ops.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = numerical_ops.cpp; sourceTree = "<group>"; };
+		3D5C6D022BB9CAAA003CC35D /* numerical_ops.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = numerical_ops.hpp; sourceTree = "<group>"; };
+		3D5C6D042BB9DA56003CC35D /* random_generators.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = random_generators.cpp; sourceTree = "<group>"; };
+		3D5C6D052BB9DA56003CC35D /* random_generators.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = random_generators.hpp; sourceTree = "<group>"; };
+		3D5C6D082BB9F8C5003CC35D /* debug_display.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = debug_display.hpp; sourceTree = "<group>"; };
+		3D5C6D0A2BBA3807003CC35D /* graph_descend.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_descend.cpp; sourceTree = "<group>"; };
+		3D5C6D0B2BBA3807003CC35D /* graph_descend.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph_descend.hpp; sourceTree = "<group>"; };
+		3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simplex_tree.cpp; sourceTree = "<group>"; };
+		3DA7ECDF2BBBBC5C002EF83A /* simplex_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = simplex_tree.hpp; sourceTree = "<group>"; };
+		3DA7ECE12BBD6E66002EF83A /* collisions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = collisions.cpp; sourceTree = "<group>"; };
+		3DA7ECE22BBD6E66002EF83A /* collisions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = collisions.hpp; sourceTree = "<group>"; };
+		3DA7ECE42BBDCE05002EF83A /* graph_path.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_path.cpp; sourceTree = "<group>"; };
+		3DA7ECE52BBDCE05002EF83A /* graph_path.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph_path.hpp; sourceTree = "<group>"; };
+		3DA7ECE72BC0384C002EF83A /* facing_node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = facing_node.cpp; sourceTree = "<group>"; };
+		3DA7ECE82BC0384C002EF83A /* facing_node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = facing_node.hpp; sourceTree = "<group>"; };
+		3DA7ECEA2BC77C9E002EF83A /* resimplexification.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = resimplexification.cpp; sourceTree = "<group>"; };
+		3DA7ECEB2BC77C9E002EF83A /* resimplexification.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = resimplexification.hpp; sourceTree = "<group>"; };
+		3DA7ECED2BCB2D09002EF83A /* numerical_debug.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = numerical_debug.cpp; sourceTree = "<group>"; };
+		3DA7ECEE2BCB2D09002EF83A /* numerical_debug.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = numerical_debug.hpp; sourceTree = "<group>"; };
+		3DA7ECF02BCC0CD0002EF83A /* file_io.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_io.cpp; sourceTree = "<group>"; };
+		3DA7ECF12BCC0CD0002EF83A /* file_io.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file_io.hpp; sourceTree = "<group>"; };
+		3DA7ECF32BCC56F0002EF83A /* chrono_methods.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = chrono_methods.cpp; sourceTree = "<group>"; };
+		3DA7ECF42BCC56F0002EF83A /* chrono_methods.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chrono_methods.hpp; sourceTree = "<group>"; };
+		3DA7ECF72BCF0537002EF83A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3DA7ECF92BCF054D002EF83A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3DA7ECFB2BCF0557002EF83A /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +90,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA7ECFC2BCF0557002EF83A /* Metal.framework in Frameworks */,
+				3DA7ECFA2BCF054D002EF83A /* QuartzCore.framework in Frameworks */,
+				3DA7ECF82BCF0537002EF83A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D24561E2BFA2EA0002487AC /* MetalSupport */ = {
+			isa = PBXGroup;
+			children = (
+				3D24561F2BFA2EED002487AC /* shaders */,
+				3D2456132BEE7E8C002487AC /* MidpointMetalOperator.cpp */,
+				3D2456142BEE7E8C002487AC /* MidpointMetalOperator.hpp */,
+				3D24562F2BFBC81C002487AC /* GlobalMemory.cpp */,
+				3D2456302BFBC81C002487AC /* GlobalMemory.hpp */,
+				3D2456202BFA2F8B002487AC /* CommandQueue.cpp */,
+				3D2456212BFA2F8B002487AC /* CommandQueue.hpp */,
+				3D2456292BFA58DE002487AC /* KernelLibrary.cpp */,
+				3D24562A2BFA58DE002487AC /* KernelLibrary.hpp */,
+			);
+			path = MetalSupport;
+			sourceTree = "<group>";
+		};
+		3D24561F2BFA2EED002487AC /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				3D2456112BED0469002487AC /* first_layer.metal */,
+				3D2456322BFD19D0002487AC /* copy.metal */,
+				3D2456192BF99C2A002487AC /* midpoint.metal */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 		3D5C6CEB2BB9CA4B003CC35D = {
 			isa = PBXGroup;
 			children = (
 				3D5C6CF62BB9CA4B003CC35D /* LinearInterpolation */,
 				3D5C6CF52BB9CA4B003CC35D /* Products */,
+				3DA7ECF62BCF0537002EF83A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +145,43 @@
 		3D5C6CF62BB9CA4B003CC35D /* LinearInterpolation */ = {
 			isa = PBXGroup;
 			children = (
-				3D5C6CF72BB9CA4B003CC35D /* main.swift */,
+				3D24561E2BFA2EA0002487AC /* MetalSupport */,
+				3D5C6CFE2BB9CA76003CC35D /* main.cpp */,
+				3DA7ECEA2BC77C9E002EF83A /* resimplexification.cpp */,
+				3DA7ECEB2BC77C9E002EF83A /* resimplexification.hpp */,
+				3DA7ECE72BC0384C002EF83A /* facing_node.cpp */,
+				3DA7ECE82BC0384C002EF83A /* facing_node.hpp */,
+				3DA7ECE12BBD6E66002EF83A /* collisions.cpp */,
+				3DA7ECE22BBD6E66002EF83A /* collisions.hpp */,
+				3D5C6D012BB9CAAA003CC35D /* numerical_ops.cpp */,
+				3D5C6D022BB9CAAA003CC35D /* numerical_ops.hpp */,
+				3D5C6D082BB9F8C5003CC35D /* debug_display.hpp */,
+				3DA7ECE42BBDCE05002EF83A /* graph_path.cpp */,
+				3DA7ECE52BBDCE05002EF83A /* graph_path.hpp */,
+				3D5C6D042BB9DA56003CC35D /* random_generators.cpp */,
+				3D5C6D052BB9DA56003CC35D /* random_generators.hpp */,
+				3DA7ECED2BCB2D09002EF83A /* numerical_debug.cpp */,
+				3DA7ECEE2BCB2D09002EF83A /* numerical_debug.hpp */,
+				3D5C6D0A2BBA3807003CC35D /* graph_descend.cpp */,
+				3D5C6D0B2BBA3807003CC35D /* graph_descend.hpp */,
+				3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */,
+				3DA7ECDF2BBBBC5C002EF83A /* simplex_tree.hpp */,
+				3DA7ECF02BCC0CD0002EF83A /* file_io.cpp */,
+				3DA7ECF12BCC0CD0002EF83A /* file_io.hpp */,
+				3DA7ECF32BCC56F0002EF83A /* chrono_methods.cpp */,
+				3DA7ECF42BCC56F0002EF83A /* chrono_methods.hpp */,
 			);
 			path = LinearInterpolation;
+			sourceTree = "<group>";
+		};
+		3DA7ECF62BCF0537002EF83A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DA7ECFB2BCF0557002EF83A /* Metal.framework */,
+				3DA7ECF92BCF054D002EF83A /* QuartzCore.framework */,
+				3DA7ECF72BCF0537002EF83A /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,7 +212,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					3D5C6CF32BB9CA4B003CC35D = {
 						CreatedOnToolsVersion = 15.1;
@@ -120,7 +242,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D5C6CF82BB9CA4B003CC35D /* main.swift in Sources */,
+				3D2456122BED0469002487AC /* first_layer.metal in Sources */,
+				3DA7ECF22BCC0CD0002EF83A /* file_io.cpp in Sources */,
+				3D24561A2BF99C2A002487AC /* midpoint.metal in Sources */,
+				3DA7ECE32BBD6E66002EF83A /* collisions.cpp in Sources */,
+				3D24562B2BFA58DE002487AC /* KernelLibrary.cpp in Sources */,
+				3D5C6D002BB9CA76003CC35D /* main.cpp in Sources */,
+				3D2456222BFA2F8B002487AC /* CommandQueue.cpp in Sources */,
+				3DA7ECF52BCC56F0002EF83A /* chrono_methods.cpp in Sources */,
+				3D5C6D062BB9DA56003CC35D /* random_generators.cpp in Sources */,
+				3DA7ECE62BBDCE05002EF83A /* graph_path.cpp in Sources */,
+				3DA7ECEC2BC77C9E002EF83A /* resimplexification.cpp in Sources */,
+				3D2456312BFBC81C002487AC /* GlobalMemory.cpp in Sources */,
+				3DA7ECE02BBBBC5C002EF83A /* simplex_tree.cpp in Sources */,
+				3DA7ECEF2BCB2D09002EF83A /* numerical_debug.cpp in Sources */,
+				3D2456152BEE7E8C002487AC /* MidpointMetalOperator.cpp in Sources */,
+				3DA7ECE92BC0384C002EF83A /* facing_node.cpp in Sources */,
+				3D2456332BFD19D0002487AC /* copy.metal in Sources */,
+				3D5C6D0C2BBA3807003CC35D /* graph_descend.cpp in Sources */,
+				3D5C6D032BB9CAAA003CC35D /* numerical_ops.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,12 +270,14 @@
 		3D5C6CF92BB9CA4B003CC35D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_DEBUG_INFORMATION_LEVEL = default;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -161,14 +303,16 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = c17;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = z;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -179,6 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/metal-cpp";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -193,12 +338,14 @@
 		3D5C6CFA2BB9CA4B003CC35D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_DEBUG_INFORMATION_LEVEL = default;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULE_DEBUGGING = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -224,18 +371,23 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/metal-cpp";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -248,18 +400,36 @@
 		3D5C6CFC2BB9CA4B003CC35D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/metal-cpp";
+				LIBRARY_SEARCH_PATHS = "";
+				MTLLINKER_FLAGS = "";
+				MTL_COMPILER_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		3D5C6CFD2BB9CA4B003CC35D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/metal-cpp";
+				LIBRARY_SEARCH_PATHS = "";
+				MTLLINKER_FLAGS = "";
+				MTL_COMPILER_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
