@@ -7,7 +7,7 @@
 
 #include "collisions.hpp"
 
-void simplex_tree_ascend(MidpointTable& midpoint_table,
+void simplex_graph_ascend(MidpointTable& midpoint_table,
                          Simplex& leaf_simplex,
                          Simplex& collision_root_simplex,
                          std::deque<MidpointStepMultiplicity>& multiplicities){

@@ -8,6 +8,8 @@
 //
 #include "CommandQueue.hpp"
 
+#ifndef NO_METAL
+
 MetalCommandQueue::MetalCommandQueue(MTL::Device *device){
     _mDevice = device;
     _mCommandQueue = _mDevice->newCommandQueue();
@@ -32,3 +34,4 @@ MetalCommandQueue::~MetalCommandQueue(){
     _mCommandQueue->release();
 }
 
+#endif

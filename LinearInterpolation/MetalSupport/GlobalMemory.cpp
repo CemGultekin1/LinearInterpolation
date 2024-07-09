@@ -8,7 +8,7 @@
 #include "../Utils/debug_control.h"
 
 
-
+#ifndef NO_METAL
 
 
 std::pair<unsigned int,unsigned int> BufferSlicer::index_forward(unsigned int n){
@@ -106,3 +106,4 @@ int roundUpToNearestMultiple(int numToRound, int multiple)
     return ((numToRound + multiple - 1) / multiple) * multiple;
 }
 
+#endif

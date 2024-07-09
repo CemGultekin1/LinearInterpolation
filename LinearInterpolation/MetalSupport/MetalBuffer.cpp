@@ -6,6 +6,7 @@
 //
 #include "MetalBuffer.hpp"
 
+#ifndef NO_METAL
 MetalBufferPiece::MetalBufferPiece(unsigned int _nbytes,unsigned int _byte_offset, void* dPtr ){
     buffer = nullptr;
     nbytes = _nbytes;
@@ -84,3 +85,4 @@ void MetalBufferPiece::move_buffer(MetalBufferPiece& x){
     x.set_buffer(*this);
     this->buffer = nullptr;
 }
+#endif

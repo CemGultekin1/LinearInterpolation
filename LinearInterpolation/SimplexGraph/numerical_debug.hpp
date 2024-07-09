@@ -9,11 +9,11 @@
 #define numerical_debug_hpp
 
 #include <stdio.h>
-#include "simplex_tree.hpp"
+#include "simplex_graph.hpp"
 
 struct InterpolationTest{
-    SimplexTree const* simplex_tree;
-    InterpolationTest(SimplexTree const* simplex_tree):simplex_tree(simplex_tree){};
+    SimplexGraph const* simplex_graph;
+    InterpolationTest(SimplexGraph const* simplex_graph):simplex_graph(simplex_graph){};
     float operator()(std::vector<float> & x);
 };
 

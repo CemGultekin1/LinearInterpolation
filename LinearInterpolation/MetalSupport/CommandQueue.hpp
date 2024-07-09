@@ -5,10 +5,13 @@
 //  Created by Cem Gultekin on 5/19/24.
 //
 
-#ifndef NO_METAL
+
 
 #ifndef CommandQueue_hpp
 #define CommandQueue_hpp
+
+#include "../control_macros.hpp"
+#ifndef NO_METAL
 
 
 
@@ -27,8 +30,8 @@ public:
     MTL::CommandBuffer * create_buffer();
     ~MetalCommandQueue();
 };
-
+#endif
 
 
 #endif /* CommandQueue_hpp */
-#endif
+

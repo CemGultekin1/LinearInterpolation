@@ -1,5 +1,5 @@
 //
-//  simplex_tree.hpp
+//  simplex_graph.hpp
 //  LinearInterpolation
 //
 //  Created by Cem Gultekin on 3/31/24.

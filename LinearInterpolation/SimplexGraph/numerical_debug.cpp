@@ -9,11 +9,11 @@
 
 
 float InterpolationTest::operator()(std::vector<float> & x){
-    SparsePoint sp{simplex_tree->midpoint_table.max_dim};
-    simplex_tree->operator()(x, sp);
+    SparsePoint sp{simplex_graph->midpoint_table.max_dim};
+    simplex_graph->operator()(x, sp);
     std::vector<float> z(x.size(),0.);
     for(size_t i = 0; i < sp.weights.size(); ++i){
-        simplex_tree->midpoint_table.increment_by_weights(z,sp.nodes[i],sp.weights[i],1,1);
+        simplex_graph->midpoint_table.increment_by_weights(z,sp.nodes[i],sp.weights[i],1,1);
     }
     float error = 0.;
     for(size_t i = 0 ; i < x.size() ; ++i){

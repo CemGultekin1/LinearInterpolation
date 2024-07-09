@@ -1,25 +1,25 @@
 //
-//  simplex_tree.cpp
+//  simplex_graph.cpp
 //  LinearInterpolation
 //
 //  Created by Cem Gultekin on 4/2/24.
 //
 
-#include "simplex_tree.hpp"
+#include "simplex_graph.hpp"
 #include "collisions.hpp"
 #include <exception>
 #include "facing_node.hpp"
 #include <assert.h>
 #include "resimplexification.hpp"
 #include "chrono_methods.hpp"
-SimplexTree::SimplexTree(int nthreads,float spt){
+SimplexGraph::SimplexGraph(int nthreads,float spt){
     nthreads = std::max(0,nthreads);
     max_nthreads = std::min(nthreads,static_cast<int>(std::thread::hardware_concurrency()));
     midpoint_table = MidpointTable();
     sparsification_tolerance = spt;
 }
 
-void SimplexTree::operator()(std::vector<float>& x,SparsePoint& sp,bool sparse) const{
+void SimplexGraph::operator()(std::vector<float>& x,SparsePoint& sp,bool sparse) const{
     PointWithDictionary point_wd{x};
     TreeDescend td(point_wd,midpoint_table);
     td.descend(max_nthreads);
@@ -51,7 +51,7 @@ void collision_check(const MidpointTable& midpoint_table,Simplex const* leaf_sim
         }
     }
 }
-size_t SimplexTree::add_midpoint(const std::vector<float>& x){
+size_t SimplexGraph::add_midpoint(const std::vector<float>& x){
     auto node = midpoint_table.add_node(x);    
     PointWithDictionary point_wd{x};
     TreeDescend td(point_wd,midpoint_table);
@@ -75,7 +75,7 @@ size_t SimplexTree::add_midpoint(const std::vector<float>& x){
     Simplex leaf_simplex{&td.descend_path,sparse_point.nodes};
     Simplex collision_root_simplex{&td.descend_path,sparse_point.nodes};
     std::deque<MidpointStepMultiplicity> multiplicities{};
-    simplex_tree_ascend(midpoint_table, leaf_simplex, collision_root_simplex, multiplicities);
+    simplex_graph_ascend(midpoint_table, leaf_simplex, collision_root_simplex, multiplicities);
     SimplexIterator sit{&leaf_simplex, &midpoint_table, &collision_root_simplex, &multiplicities, alias};
     std::vector<FacingNodes> facing_nodes_list{};    
     int num_simplexes = 0;

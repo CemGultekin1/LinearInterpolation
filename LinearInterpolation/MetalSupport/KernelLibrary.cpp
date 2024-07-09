@@ -9,7 +9,7 @@
 
 #include "KernelLibrary.hpp"
 
-
+#ifndef NO_METAL
 
 static unsigned int ceil_up_to_divisible(unsigned int x, unsigned int y){
     return 1 + ((x - 1) / y);
@@ -429,3 +429,4 @@ void MidpointOperationKernel::encode_arguments(
 }
 
 
+#endif

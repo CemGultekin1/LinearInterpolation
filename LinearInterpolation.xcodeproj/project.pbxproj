@@ -12,7 +12,6 @@
 		3D2456222BFA2F8B002487AC /* CommandQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456202BFA2F8B002487AC /* CommandQueue.cpp */; };
 		3D24562B2BFA58DE002487AC /* KernelLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456292BFA58DE002487AC /* KernelLibrary.cpp */; };
 		3D2456362C111CE0002487AC /* graph_nodes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D2456342C111CE0002487AC /* graph_nodes.cpp */; };
-		3D24EADC2C23D69900B4145C /* DescendPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D24EADA2C23D69900B4145C /* DescendPipeline.cpp */; };
 		3D24EAE32C2C3F8E00B4145C /* GlobalMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D24EAE22C2C3F8E00B4145C /* GlobalMemory.cpp */; };
 		3D24EAE52C2C3FA300B4145C /* MetalBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D24EAE42C2C3FA300B4145C /* MetalBuffer.cpp */; };
 		3D24EAEC2C3C4B5800B4145C /* string_manip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D24EAEA2C3C4B5800B4145C /* string_manip.cpp */; };
@@ -20,7 +19,7 @@
 		3D5C6D032BB9CAAA003CC35D /* numerical_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D012BB9CAAA003CC35D /* numerical_ops.cpp */; };
 		3D5C6D062BB9DA56003CC35D /* random_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D042BB9DA56003CC35D /* random_generators.cpp */; };
 		3D5C6D0C2BBA3807003CC35D /* graph_descend.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C6D0A2BBA3807003CC35D /* graph_descend.cpp */; };
-		3DA7ECE02BBBBC5C002EF83A /* simplex_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */; };
+		3DA7ECE02BBBBC5C002EF83A /* simplex_graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECDE2BBBBC5C002EF83A /* simplex_graph.cpp */; };
 		3DA7ECE32BBD6E66002EF83A /* collisions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE12BBD6E66002EF83A /* collisions.cpp */; };
 		3DA7ECE62BBDCE05002EF83A /* graph_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE42BBDCE05002EF83A /* graph_path.cpp */; };
 		3DA7ECE92BC0384C002EF83A /* facing_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7ECE72BC0384C002EF83A /* facing_node.cpp */; };
@@ -56,8 +55,6 @@
 		3D2456342C111CE0002487AC /* graph_nodes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_nodes.cpp; sourceTree = "<group>"; };
 		3D2456352C111CE0002487AC /* graph_nodes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph_nodes.hpp; sourceTree = "<group>"; };
 		3D2456372C169400002487AC /* init_metal_header.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = init_metal_header.hpp; sourceTree = "<group>"; };
-		3D24EADA2C23D69900B4145C /* DescendPipeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DescendPipeline.cpp; sourceTree = "<group>"; };
-		3D24EADB2C23D69900B4145C /* DescendPipeline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DescendPipeline.hpp; sourceTree = "<group>"; };
 		3D24EAE02C2A023000B4145C /* MetalBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MetalBuffer.hpp; sourceTree = "<group>"; };
 		3D24EAE22C2C3F8E00B4145C /* GlobalMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalMemory.cpp; sourceTree = "<group>"; };
 		3D24EAE42C2C3FA300B4145C /* MetalBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MetalBuffer.cpp; sourceTree = "<group>"; };
@@ -75,9 +72,9 @@
 		3D5C6D082BB9F8C5003CC35D /* debug_display.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = debug_display.hpp; sourceTree = "<group>"; };
 		3D5C6D0A2BBA3807003CC35D /* graph_descend.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_descend.cpp; sourceTree = "<group>"; };
 		3D5C6D0B2BBA3807003CC35D /* graph_descend.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph_descend.hpp; sourceTree = "<group>"; };
-		3D9F08CC2C3C543900CF743F /* control_macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = control_macros.h; sourceTree = "<group>"; };
-		3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simplex_tree.cpp; sourceTree = "<group>"; };
-		3DA7ECDF2BBBBC5C002EF83A /* simplex_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = simplex_tree.hpp; sourceTree = "<group>"; };
+		3D9F08CC2C3C543900CF743F /* control_macros.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = control_macros.hpp; sourceTree = "<group>"; };
+		3DA7ECDE2BBBBC5C002EF83A /* simplex_graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simplex_graph.cpp; sourceTree = "<group>"; };
+		3DA7ECDF2BBBBC5C002EF83A /* simplex_graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = simplex_graph.hpp; sourceTree = "<group>"; };
 		3DA7ECE12BBD6E66002EF83A /* collisions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = collisions.cpp; sourceTree = "<group>"; };
 		3DA7ECE22BBD6E66002EF83A /* collisions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = collisions.hpp; sourceTree = "<group>"; };
 		3DA7ECE42BBDCE05002EF83A /* graph_path.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph_path.cpp; sourceTree = "<group>"; };
@@ -123,8 +120,6 @@
 				3D2456202BFA2F8B002487AC /* CommandQueue.cpp */,
 				3D24562A2BFA58DE002487AC /* KernelLibrary.hpp */,
 				3D2456292BFA58DE002487AC /* KernelLibrary.cpp */,
-				3D24EADB2C23D69900B4145C /* DescendPipeline.hpp */,
-				3D24EADA2C23D69900B4145C /* DescendPipeline.cpp */,
 				3D2456372C169400002487AC /* init_metal_header.hpp */,
 			);
 			path = MetalSupport;
@@ -171,8 +166,8 @@
 				3D5C6D0B2BBA3807003CC35D /* graph_descend.hpp */,
 				3D2456342C111CE0002487AC /* graph_nodes.cpp */,
 				3D2456352C111CE0002487AC /* graph_nodes.hpp */,
-				3DA7ECDE2BBBBC5C002EF83A /* simplex_tree.cpp */,
-				3DA7ECDF2BBBBC5C002EF83A /* simplex_tree.hpp */,
+				3DA7ECDE2BBBBC5C002EF83A /* simplex_graph.cpp */,
+				3DA7ECDF2BBBBC5C002EF83A /* simplex_graph.hpp */,
 				3DA7ECE12BBD6E66002EF83A /* collisions.cpp */,
 				3DA7ECE22BBD6E66002EF83A /* collisions.hpp */,
 				3DA7ECEB2BC77C9E002EF83A /* resimplexification.hpp */,
@@ -204,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5C6CFE2BB9CA76003CC35D /* main.cpp */,
-				3D9F08CC2C3C543900CF743F /* control_macros.h */,
+				3D9F08CC2C3C543900CF743F /* control_macros.hpp */,
 				3D24561E2BFA2EA0002487AC /* MetalSupport */,
 				3D24EAED2C3C4B8100B4145C /* SimplexGraph */,
 				3D24EAE92C3C4B3C00B4145C /* Utils */,
@@ -280,7 +275,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D24EADC2C23D69900B4145C /* DescendPipeline.cpp in Sources */,
 				3D2456362C111CE0002487AC /* graph_nodes.cpp in Sources */,
 				3D2456122BED0469002487AC /* first_layer.metal in Sources */,
 				3DA7ECF22BCC0CD0002EF83A /* file_io.cpp in Sources */,
@@ -294,7 +288,7 @@
 				3D24EAE32C2C3F8E00B4145C /* GlobalMemory.cpp in Sources */,
 				3DA7ECE62BBDCE05002EF83A /* graph_path.cpp in Sources */,
 				3DA7ECEC2BC77C9E002EF83A /* resimplexification.cpp in Sources */,
-				3DA7ECE02BBBBC5C002EF83A /* simplex_tree.cpp in Sources */,
+				3DA7ECE02BBBBC5C002EF83A /* simplex_graph.cpp in Sources */,
 				3DA7ECEF2BCB2D09002EF83A /* numerical_debug.cpp in Sources */,
 				3DA7ECE92BC0384C002EF83A /* facing_node.cpp in Sources */,
 				3D5C6D0C2BBA3807003CC35D /* graph_descend.cpp in Sources */,

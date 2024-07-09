@@ -5,11 +5,15 @@
 //  Created by Cem Gultekin on 6/24/24.
 //
 
-#ifndef NO_METAL
+
+
 
 #ifndef MetalBuffer_hpp
 #define MetalBuffer_hpp
 
+#include "../control_macros.hpp"
+
+#ifndef NO_METAL
 #include "Metal/Metal.hpp"
 #include <iostream>
 #include <stdio.h>
@@ -60,5 +64,6 @@ unsigned int MetalBufferPiece::numel() const{
     return nbytes/sizeof(T);
 }
 
-#endif /* MetalBuffer_hpp */
 #endif /*NO_METAL*/
+#endif /* MetalBuffer_hpp */
+

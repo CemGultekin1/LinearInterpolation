@@ -4,10 +4,12 @@
 //
 //  Created by Cem Gultekin on 5/20/24.
 //
-#ifndef NO_METAL
+
 #ifndef GlobalMemory_hpp
 #define GlobalMemory_hpp
+#include "../control_macros.hpp"
 
+#ifndef NO_METAL
 #include "init_metal_header.hpp"
 #include "MetalBuffer.hpp"
 
@@ -89,6 +91,6 @@ int roundUpToNearestMultiple(int numToRound, int multiple);
 
 
 
-
-#endif /* GlobalMemory_hpp */
 #endif /* NO_METAL */
+#endif /* GlobalMemory_hpp */
+

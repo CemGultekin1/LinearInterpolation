@@ -4,10 +4,14 @@
 //
 //  Created by Cem Gultekin on 5/19/24.
 //
-#ifndef NO_METAL
+
 
 #ifndef KernelLibrary_hpp
 #define KernelLibrary_hpp
+
+
+#include "../control_macros.hpp"
+#ifndef NO_METAL
 
 #include "../Utils/debug_control.h"
 #include "../Utils/string_manip.hpp"
@@ -130,7 +134,7 @@ public:
 
 class FindExitKernel:public KernelFxn{
 public:
-    FindExitKernel(unsigned int per_thread_compute,MetalCommandQueue *mCommandQueu):KernelFxn(xSTRINGIFY(FIND_EXIT_KRNL_NM),sizeof(float) +sizeof(unsigned int)+sizeof(char),per_thread_compute, mCommandQueu){};
+    FindExitKernel(unsigned int per_thread_compute,MetalCommandQueue *mCommandQueu):KernelFxn(xSTRINGIFY(FIND_EXIT_KRNL_NM), sizeof(unsigned int) + sizeof(float),per_thread_compute, mCommandQueu){};
 
     void encode_arguments(MTL::ComputeCommandEncoder*,TypedMetalBufferPiece<float>& input,
                                   MetalSparseMidpoint& midpoint,
@@ -163,7 +167,7 @@ public:
 };
 
 
-
+#endif
 
 #endif /* KernelLibrary_hpp */
-#endif
+

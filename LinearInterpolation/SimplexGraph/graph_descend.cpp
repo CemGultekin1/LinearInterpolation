@@ -1,5 +1,5 @@
 //
-//  simplex_tree.cpp
+//  simplex_graph.cpp
 //  LinearInterpolation
 //
 //  Created by Cem Gultekin on 3/31/24.
