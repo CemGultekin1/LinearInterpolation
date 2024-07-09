@@ -1,13 +1,12 @@
+////
+////  CommandQueue.cpp
+////  LinearInterpolation
+////
+////  Created by Cem Gultekin on 5/19/24.
+////
 //
-//  CommandQueue.cpp
-//  LinearInterpolation
 //
-//  Created by Cem Gultekin on 5/19/24.
-//
-
-
 #include "CommandQueue.hpp"
-
 
 MetalCommandQueue::MetalCommandQueue(MTL::Device *device){
     _mDevice = device;
@@ -32,3 +31,4 @@ MTL::CommandBuffer * MetalCommandQueue::create_buffer(){
 MetalCommandQueue::~MetalCommandQueue(){
     _mCommandQueue->release();
 }
+

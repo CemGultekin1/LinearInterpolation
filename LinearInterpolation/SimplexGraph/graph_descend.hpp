@@ -8,28 +8,12 @@
 #ifndef graph_descend_hpp
 #define graph_descend_hpp
 
-#include <vector>
+
 #include <unordered_map>
-#include "numerical_ops.hpp"
+#include <unordered_set>
 #include "graph_path.hpp"
+#include "graph_nodes.hpp"
 
-struct SparsePoint{
-    std::vector<float> weights;
-    std::vector<long> nodes;
-    SparsePoint(const size_t max_dim);
-    SparsePoint(const SparsePoint&);
-    std::string to_string() const;
-};
-
-struct PointWithDictionary{
-    std::vector<float> weights;
-    std::unordered_map<long,size_t> node2index;
-    PointWithDictionary(const std::vector<float>& input);
-    PointWithDictionary(const size_t& max_dim);
-    void to_point(SparsePoint & empty_point, float sparsification_tolerance,int num_threads,bool apply_sparsification = true) const;
-    void fill_up_default_coords();
-    std::string to_string() const;
-};
 
 struct MidpointTable{
     std::vector<long> alias2node;
@@ -62,7 +46,7 @@ struct TreeDescend{
     TreeDescend(const MidpointTable& _m):data(nullptr),midpoint_table(&_m){};
     void descend(int num_threads);
     float determinant() const;
-    void follow_midpoint_with_step_discovery(PointWithDictionary *,int num_threads );
+    void follow_midpoint_with_step_discovery(PointWithDictionary *,int num_threads);
 };
 
 

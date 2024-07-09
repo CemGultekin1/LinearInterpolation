@@ -4,82 +4,91 @@
 //
 //  Created by Cem Gultekin on 5/20/24.
 //
-
+#ifndef NO_METAL
 #ifndef GlobalMemory_hpp
 #define GlobalMemory_hpp
 
-#include <stdio.h>
-#include "Foundation/Foundation.hpp"
-#include "Metal/Metal.hpp"
+#include "init_metal_header.hpp"
+#include "MetalBuffer.hpp"
+
+
 
 template <typename T>
-struct SizedMetalBuffer{
-    unsigned int nbytes;
-    unsigned int sizeof_type;
-    unsigned int size;
-    unsigned int global_memory_address;
-    unsigned int origin;
-    MTL::Buffer* buffer;
-    SizedMetalBuffer<T>(unsigned int _size,unsigned int _origin = 0){
-        size = _size;
-        nbytes = sizeof(T)*size;
-        sizeof_type = sizeof(T);
-        buffer = nullptr;
-        origin = _origin;
+struct TypedMetalBufferPiece:public MetalBufferPiece{
+    TypedMetalBufferPiece(unsigned int _numel = 0):MetalBufferPiece(_numel*sizeof(T)){};
+    T* content_pointer() const{
+        return MetalBufferPiece::content_pointer<T>();
     }
-    bool is_allocated() const{
-        return buffer != nullptr;
+    unsigned int numel() const{
+        return MetalBufferPiece::numel<T>();
     }
-};
-
-struct Midpoint{
-    SizedMetalBuffer<int> nodes;
-    SizedMetalBuffer<float>  weights;
-    unsigned int midpoint_index;
-    Midpoint(SizedMetalBuffer<int>x,SizedMetalBuffer<float>y):nodes(x),weights(y){};
-    std::string to_string(){
-        return "midpoint_index = " + std::to_string(midpoint_index)  + ", nnz = " + std::to_string(nodes.size);
-    }
+    MetalBufferPiece to_buffer_piece() const;
 };
 
 
-class GlobalMetalMemory{
+template <typename T>
+MetalBufferPiece TypedMetalBufferPiece<T>::to_buffer_piece() const{
+    MetalBufferPiece x{get_nbytes(),get_byte_offset()};
+    x.set_buffer(*this);
+    return x;
+}
+
+
+struct BufferSlicer{
+    unsigned int beg;
+    unsigned int end;
+    unsigned int grain;
+    BufferSlicer(unsigned int _beg = 0,
+                 unsigned int _end = std::numeric_limits<unsigned int>::max(),
+                 unsigned int _grain = BANK_SIZE_IN_BYTES):beg(_beg),end(_end),grain(_grain){};
+    std::pair<unsigned int,unsigned int> index_forward(unsigned int n);
+};
+
+struct MetalBufferSlicer:public BufferSlicer{
+private:
+    const MetalBufferPiece base_buffer;
 public:
-    MTL::Device *_mDevice;
-    std::vector<Midpoint> _midpoints;
-    std::unordered_map<unsigned int, MTL::Buffer*> _full_memory;
-    unsigned int _memory_address_counter;
-    GlobalMetalMemory(MTL::Device * device);
+    MetalBufferSlicer(const MetalBufferPiece& x,unsigned int _grain = BANK_SIZE_IN_BYTES):BufferSlicer(0, x.get_nbytes(), _grain),base_buffer(x){};
     template <typename T>
-    void reserve_gpu_memory(SizedMetalBuffer<T>&);
-    template <typename T>
-    void free_memory(SizedMetalBuffer<T>&);
-    void fill_with_random(SizedMetalBuffer<float>&,unsigned int dimension,unsigned int offset = 1);
-    void add_midpoint(SizedMetalBuffer<float>& x,float tolerance = 0.001);
-    ~GlobalMetalMemory();
+    MetalBufferPiece step_forward(unsigned int n = 1);
 };
 
 
 template <typename T>
-void GlobalMetalMemory::reserve_gpu_memory(SizedMetalBuffer<T>& x)
-{
-    if(x.is_allocated()){
-        assert(_full_memory.find(x.global_memory_address) != _full_memory.end());
-        free_memory(x);
+MetalBufferPiece MetalBufferSlicer::step_forward(unsigned int n){
+    auto [x,y] = index_forward(sizeof(T)*n);
+    if(x==y){
+        MetalBufferPiece mbp{};
+        return mbp;
+    }else{
+        MetalBufferPiece mbp{y - x,x};
+        mbp.set_buffer(base_buffer);
+        return mbp;
     }
-    x.buffer = _mDevice->newBuffer(x.nbytes, MTL::ResourceStorageModeShared);
-    x.global_memory_address = _memory_address_counter;
-    _memory_address_counter += 1;
-    _full_memory[x.global_memory_address] = x.buffer;
 }
 
 
-template <typename T>
-void GlobalMetalMemory::free_memory(SizedMetalBuffer<T>&x){
-    if(_full_memory.find(x.global_memory_address) != _full_memory.end()) {
-        _full_memory[x.global_memory_address]->release();
-        _full_memory.erase(x.global_memory_address);
-    }
-}
+
+struct MetalSparseMidpoint:public MetalBufferPiece{
+    TypedMetalBufferPiece<unsigned int> nodes;
+    TypedMetalBufferPiece<float> weights;
+    unsigned int nnz;
+    unsigned int midpoint_index;
+    float rtol;
+    MetalSparseMidpoint(const TypedMetalBufferPiece<float>&,float rtol,MTL::Device* device,unsigned int midpoint_index);
+    std::string to_string();
+    unsigned int numel() const;
+};
+
+void fill_with_random(TypedMetalBufferPiece<float>&x,unsigned int dimension,unsigned int offset);
+
+int roundUpToNearestMultiple(int numToRound, int multiple);
+
+
+
+
+
+
 
 #endif /* GlobalMemory_hpp */
+#endif /* NO_METAL */

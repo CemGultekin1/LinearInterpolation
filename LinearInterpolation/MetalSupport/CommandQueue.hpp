@@ -5,14 +5,17 @@
 //  Created by Cem Gultekin on 5/19/24.
 //
 
+#ifndef NO_METAL
+
 #ifndef CommandQueue_hpp
 #define CommandQueue_hpp
 
 
-#include "Foundation/Foundation.hpp"
-#include "Metal/Metal.hpp"
+
 #include <stdio.h>
 #include <iostream>
+
+#include <Metal/Metal.hpp>
 
 
 
@@ -25,5 +28,7 @@ public:
     ~MetalCommandQueue();
 };
 
-#endif /* CommandQueue_hpp */
 
+
+#endif /* CommandQueue_hpp */
+#endif

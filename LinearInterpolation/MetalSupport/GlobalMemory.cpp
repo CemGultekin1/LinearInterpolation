@@ -2,82 +2,107 @@
 //  GlobalMemory.cpp
 //  LinearInterpolation
 //
-//  Created by Cem Gultekin on 5/20/24.
+//  Created by Cem Gultekin on 6/26/24.
 //
-
 #include "GlobalMemory.hpp"
-#include <iostream>
-
-
-GlobalMetalMemory::GlobalMetalMemory(MTL::Device * device){
-    _mDevice = device;
-    _memory_address_counter = 0;
-}
+#include "../Utils/debug_control.h"
 
 
 
 
 
-
-
-void GlobalMetalMemory::fill_with_random(SizedMetalBuffer<float>& x,unsigned int dimension,unsigned int offset){
-    float *dataPtr = (float *)x.buffer->contents();
-    for(unsigned int index = 0; index <offset; index ++){
-        dataPtr[index] = 0;
-    }
-    
-    for (unsigned int index = offset; index < offset+dimension; index++)
-    {
-        dataPtr[index] = (float) rand() / (float)(RAND_MAX);
-    }
-    for(unsigned int index = offset+dimension; index < x.size; index ++){
-        dataPtr[index] = 0;
+std::pair<unsigned int,unsigned int> BufferSlicer::index_forward(unsigned int n){
+    n = roundUpToNearestMultiple(n,grain);
+    if(beg + n > end){
+        return {beg,beg};
+    }else{
+        auto oldbeg = beg;
+        beg += n;
+        return {oldbeg,beg};
     }
 }
 
 
-GlobalMetalMemory::~GlobalMetalMemory()
-{
-    for(auto [p,x]: _full_memory){
-        x->release();
-    }
+
+std::string MetalSparseMidpoint::to_string(){
+    return "midpoint_index = " + std::to_string(midpoint_index)  + ", nnz = " + std::to_string(nodes.numel());
+}
+unsigned int MetalSparseMidpoint::numel() const{
+    return nnz;
 }
 
-void GlobalMetalMemory::add_midpoint(SizedMetalBuffer<float>& x,float tolerance){
-    float *dataPtr = (float *)x.buffer->contents();
+
+
+MetalSparseMidpoint::MetalSparseMidpoint(const TypedMetalBufferPiece<float>& mp,float tol,MTL::Device* device,unsigned int mindex)
+:midpoint_index(mindex){
+    float *dataPtr = mp.content_pointer();
     float _maxel = std::numeric_limits<float>::min();
-    for(unsigned int index = 0; index <x.size; index ++){
+    for(unsigned int index = 0; index <mp.numel(); index ++){
         _maxel = std::max(_maxel,dataPtr[index]);
     }
     
-    float lolim = _maxel*tolerance;
-    
+    float lolim = _maxel*tol;
     
     unsigned int n = 0;
     float sum = 0;
-    for(unsigned int index = 0; index <x.size; index ++){
+    for(unsigned int index = 0; index <mp.numel(); index ++){
         if(dataPtr[index] > lolim){
             n++;
             sum += dataPtr[index];
         }
     }
+    BufferSlicer bfs{};
+    auto [nb00,nb01] = bfs.index_forward(n*sizeof(float));
+    auto [nb10,nb11] = bfs.index_forward(n*sizeof(int));
     
-
-    SizedMetalBuffer<float> weights(n);
-    SizedMetalBuffer<int> nodes(n);
-    reserve_gpu_memory(weights);
-    reserve_gpu_memory(nodes);
-    float* weightsPtr = (float*) weights.buffer->contents();
-    int* nodesPtr = (int*) nodes.buffer->contents();
-    n = 0;
-    for(unsigned int index = 0; index <x.size; index ++){
+    if(nb11 == 0){
+        return;
+    }
+    set_nbytes(nb11);
+    to(device);
+    
+    weights.set_nbytes(nb01);
+    weights.set_offset(nb00);
+    weights.set_buffer(*this);
+    
+    nodes.set_nbytes(nb11 - nb10);
+    nodes.set_offset(nb10);
+    nodes.set_buffer(*this);
+    
+    float* weightsPtr = weights.content_pointer();
+    unsigned int* nodesPtr = nodes.content_pointer();
+    nnz = 0;
+    for(unsigned int index = 0; index <mp.numel(); index ++){
         if(dataPtr[index] > lolim){
-            nodesPtr[n] = index - x.origin;
-            weightsPtr[n] = dataPtr[index]/sum;
-            n++;
+            nodesPtr[nnz] = index;
+            weightsPtr[nnz] = dataPtr[index]/sum;
+            nnz++;
         }
     }
-    Midpoint m{nodes,weights};
-    m.midpoint_index = static_cast<unsigned int>(_midpoints.size());
-    _midpoints.emplace_back(m);
+    DEBUG_PRINT("Sparse midpoint: nnz = %d, tol = %f\n",nnz,tol);
 }
+
+void fill_with_random(TypedMetalBufferPiece<float>&x,unsigned int dimension,unsigned int offset){
+    float *dataPtr = x.content_pointer();
+    for(unsigned int index = 0; index <offset; index ++){
+        dataPtr[index] = 0;
+    }
+//
+    for (unsigned int index = offset; index < offset+dimension; index++)
+    {
+        dataPtr[index] = (float) rand() / (float)(RAND_MAX);
+    }
+    for(unsigned int index = offset+dimension; index < x.numel(); index ++){
+        dataPtr[index] = 0;
+    }
+}
+
+
+
+
+int roundUpToNearestMultiple(int numToRound, int multiple)
+{
+    assert(multiple);
+    return ((numToRound + multiple - 1) / multiple) * multiple;
+}
+
